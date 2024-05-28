@@ -41,6 +41,16 @@ spec:
                 configMapKeyRef:
                   name: cm-todo-java
                   key: theme
+            - name: DB_USER
+              valueFrom:
+                secretKeyRef:
+                name: db-secret
+                key: username
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                name: db-secret
+                key: password
           livenessProbe:
             failureThreshold: 5
             successThreshold: 1
