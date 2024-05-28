@@ -44,13 +44,13 @@ spec:
             - name: DB_USER
               valueFrom:
                 secretKeyRef:
-                name: db-secret
-                key: username
+                  name: db-secret
+                  key: username
             - name: DB_PASSWORD
               valueFrom:
                 secretKeyRef:
-                name: db-secret
-                key: password
+                  name: db-secret
+                  key: password
           livenessProbe:
             failureThreshold: 5
             successThreshold: 1
