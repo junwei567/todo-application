@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: todo-java-app
+  namespace: openshift-gitops
+spec:
+  destination:
+    namespace: todo-java
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: openshift/overlays/dev
+    repoURL: https://github.com/junwei567/todo-application
+    targetRevision: main
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: false
+    syncOptions:
+    - CreateNamespace=true
